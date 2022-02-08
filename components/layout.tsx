@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { FunctionComponent } from 'react'
 import Footer from './footer';
 import Main from './main';
-import Navbar from './navbar';
+import Navbar from './header';
 
 export type TwitterTags = {
     handle: string,
