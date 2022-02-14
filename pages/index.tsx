@@ -1,11 +1,25 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { GetStaticProps, NextPage } from 'next'
 import styles from '../styles/Home.module.css'
+import getAllPostsAbstract from '../lib/grapql/query/getAllPostsAbstract';
+import { PostAbstract } from '../lib/grapql/query/models';
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const { posts } = await getAllPostsAbstract();
+  return {
+    props: {
+      posts,
+    }
+  }
+}
+
+export interface IHome {
+  posts?: PostAbstract[];
+}
+
+const Home: NextPage<IHome> = ({ posts }) => {
+  console.log(posts)
   return (
-        <h1 className="text-3xl font-bold underline">      Hello world!    </h1>
+    <div className={styles.hello__container}>      Hello world!    </div>
   )
 }
 

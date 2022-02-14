@@ -1,0 +1,4 @@
+.hello__container {
+  @apply bg-red-300 flex justify-center items-center;
+  height: calc(100vh - theme("spacing[16]"));
+}

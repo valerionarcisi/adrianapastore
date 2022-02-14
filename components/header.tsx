@@ -1,31 +1,20 @@
-import Link from "next/link";
 import React, { FunctionComponent } from "react";
+import Nav from "./navbar";
 
 
 const Header: FunctionComponent = () => {
     return (<header>
-        <nav className="
-        rounded 
-        flex 
-        mx-auto 
-        bg-white 
-        px-8 
-        py-4 
-        flex-col
-        justify-center
-        items-center
-        lg:flex-row
-        lg:justify-between 
-        ">
-            <div>
-                <h3 className="text-2xl font-medium text-blue-500">LOGO</h3>
-            </div>
-            <div className="space-x-8">
-                <a href="">Chi Sono</a>
-                <a href="">Blogs</a>
-                <a href="">Contattami</a>
-            </div>
-        </nav>
+        <Nav>
+            <Nav.Navlink>
+                <button>Chi Sono</button>
+            </Nav.Navlink>
+            <Nav.Navlink>
+                <button>Blog</button>
+            </Nav.Navlink>
+            <Nav.Navlink>
+                <button>Contattami</button>
+            </Nav.Navlink>
+        </Nav>
     </header>)
 }
 
