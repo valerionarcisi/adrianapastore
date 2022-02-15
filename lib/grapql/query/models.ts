@@ -4,12 +4,18 @@ export type Content = {
     html: string;
 }
 
+export type CoverImage = {
+    url: string;
+    fileName: string;
+}
+
 export type Post = {
     id: string,
     title: string,
     slug: string,
     excerpt?: string,
     content: Content,
+    coverImage: CoverImage,
 }
 
 

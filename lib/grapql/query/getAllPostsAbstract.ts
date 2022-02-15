@@ -9,6 +9,10 @@ const query = gql`
     title,
     slug,
     excerpt,
+    coverImage {
+      url,
+      fileName,
+    }
   }
 }`;
 

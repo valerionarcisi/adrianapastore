@@ -5,7 +5,7 @@ import Nav from "./navbar";
 const Header: FunctionComponent = () => {
     return (<header>
         <Nav>
-            <Nav.Navlink>
+            <Nav.Navlink href="/about">
                 <button>Chi Sono</button>
             </Nav.Navlink>
             <Nav.Navlink>
