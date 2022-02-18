@@ -4,8 +4,10 @@ export type Content = {
     html: string;
 }
 
-export type CoverImage = {
+export type Image = {
     url: string;
+    height?: number;
+    width?: number;
     fileName: string;
 }
 
@@ -15,10 +17,32 @@ export type Post = {
     slug: string,
     excerpt?: string,
     content: Content,
-    coverImage: CoverImage,
+    coverImage: Image,
 }
 
 
 export type PostAbstract = Omit<Post, 'content'>
 
 export type ResponseGetAllPostsAbstract = ResposeData<'posts', PostAbstract[]>
+
+export type Seo = {
+    title: string,
+    description: string,
+}
+
+export type Picture = Omit<Image, 'fileName'>
+
+export type Author = {
+    name: string,
+    picture: Picture,
+}
+
+
+export type PostDetail = Post & {
+    author: Author
+} & {
+    seo: Seo
+};
+
+
+export type ResponseGetPostBySlug = ResposeData<'post', PostDetail>

@@ -1,3 +1,5 @@
-import {request } from 'graphql-request'; 
+import {request, Variables } from 'graphql-request'; 
 
-export const graphcmq = <T>(query: string):Promise<T> => request('https://api-eu-central-1.graphcms.com/v2/ckylkqjkv05yx01xs8rjocn7b/master', query).then((data) => (data))
+export const graphcmq = <T>(query: string, variables?: Variables): Promise<T> => {
+    return request('https://api-eu-central-1.graphcms.com/v2/ckylkqjkv05yx01xs8rjocn7b/master', query, variables).then((data) => (data))
+}
