@@ -1,6 +1,4 @@
 import React, { FunctionComponent } from "react";
-import ErrorPage from 'next/error'
-import { useRouter } from "next/router";
 import PostBody from "../../components/post-body";
 import { PostDetail } from "../../lib/grapql/query/models";
 import { GetStaticPaths, GetStaticProps } from "next";

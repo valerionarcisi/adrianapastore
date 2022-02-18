@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import { graphcmq } from "../index";
+import { graphcms } from "../index";
 import { ResponseGetAllPostsAbstract } from "./models";
 
 const query = gql`
@@ -16,4 +16,4 @@ const query = gql`
   }
 }`;
 
-export default function getAllPostsAbstract(): Promise<ResponseGetAllPostsAbstract> { return graphcmq<ResponseGetAllPostsAbstract>(query) };
+export default function getAllPostsAbstract(): Promise<ResponseGetAllPostsAbstract> { return graphcms<ResponseGetAllPostsAbstract>(query) };

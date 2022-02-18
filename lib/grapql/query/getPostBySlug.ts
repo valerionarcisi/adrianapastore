@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import { graphcmq } from "../index";
+import { graphcms } from "../index";
 import { ResponseGetPostBySlug } from "./models";
 
 const query = gql`
@@ -35,4 +35,4 @@ query GetPost($slug: String!) {
 }
 `;
 
-export default function getPostBySlug(slug: string): Promise<ResponseGetPostBySlug> { return graphcmq<ResponseGetPostBySlug>(query, { slug }) };
+export default function getPostBySlug(slug: string): Promise<ResponseGetPostBySlug> { return graphcms<ResponseGetPostBySlug>(query, { slug }) };
