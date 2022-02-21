@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { FunctionComponent } from "react";
 import Logo from "./logo";
 import styles from '../styles/Navbar.module.css'
 
@@ -8,7 +8,7 @@ export interface INavlinkProps {
     children: React.ReactNode,
 }
 
-const Navlink: React.FC<INavlinkProps> = ({
+const Navlink: FunctionComponent<INavlinkProps> = ({
     href='#',
     children,
 }) => {
@@ -22,10 +22,10 @@ export interface INavProps {
 }
 
 export interface INavComposition {
-    Navlink: React.FC<INavlinkProps>
+    Navlink: FunctionComponent<INavlinkProps>
 }
 
-const Nav: React.FC<INavProps> & INavComposition = ({
+const Nav: FunctionComponent<INavProps> & INavComposition = ({
     children
 }) => {
     return(<nav className={styles.container}>

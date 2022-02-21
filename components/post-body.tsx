@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react"
 import { Content } from "../lib/grapql/query/models"
-import postStyles from '../styles/PostStyles.module.css'
+import postStyles from '../styles/Post.module.css'
 
 const PostBody: FunctionComponent<Content> = ({ html }) => {
     return (

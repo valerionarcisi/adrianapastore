@@ -3,8 +3,8 @@ import { graphcms } from "../index";
 import { ResponseGetAllPostsAbstract } from "./models";
 
 const query = gql`
- query GetAllPostsAbstract {
-  posts(orderBy: createdAt_DESC, last:5) {
+ query GetAllPosts {
+  posts(orderBy: createdAt_DESC) {
     id,
     title,
     slug,
@@ -16,4 +16,4 @@ const query = gql`
   }
 }`;
 
-export default function getAllPostsAbstract(): Promise<ResponseGetAllPostsAbstract> { return graphcms<ResponseGetAllPostsAbstract>(query) };
+export default function getAllPosts(): Promise<ResponseGetAllPostsAbstract> { return graphcms<ResponseGetAllPostsAbstract>(query) };

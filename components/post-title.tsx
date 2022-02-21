@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import "../styles/PostStyles.module.css";
+import "../styles/Post.module.css";
 
 export type PostTitle = {
     children: React.ReactNode,

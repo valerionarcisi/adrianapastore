@@ -44,5 +44,12 @@ export type PostDetail = Post & {
     seo: Seo
 };
 
+export type AboutPageContent = {
+    title: string,
+    content: Content,
+    seo: Seo,
+}
 
 export type ResponseGetPostBySlug = ResposeData<'post', PostDetail>
+
+export type ResponseGetAboutPage = ResposeData<'pages', AboutPageContent[]>
