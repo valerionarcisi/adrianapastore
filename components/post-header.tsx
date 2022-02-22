@@ -1,16 +1,16 @@
 import { NextSeo } from "next-seo";
-import { FunctionComponent } from "react";
+import { FC, HTMLAttributes } from "react";
 import { Author, Seo } from "../lib/grapql/query/models";
 import PostTitle from "./post-title";
 
-export type PostHeader = {
+export interface PostHeaderProps extends HTMLAttributes<HTMLElement> {
     title: string,
     seo: Seo,
     author: Author
     coverImage: string,
 }
 
-const PostHeader: FunctionComponent<PostHeader> = (
+const PostHeader: FC<PostHeaderProps> = (
     { author, title, seo, coverImage }
 ) => {
     return (<>

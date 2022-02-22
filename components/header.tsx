@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import Nav from "./navbar";
 
+export interface HeaderProps extends HTMLAttributes<HTMLUListElement> {}
 
-const Header: FunctionComponent = () => {
+const Header: FC<HeaderProps> = () => {
     return (<header>
         <Nav>
             <Nav.Navlink href="/chi-sono">

@@ -1,10 +1,12 @@
-import React, { FunctionComponent } from "react";
+import { FC, HTMLAttributes } from "react";
 import styles from '../styles/Footer.module.css';
 
-const Footer: FunctionComponent = () => {
+export interface FooterProps extends HTMLAttributes<HTMLAreaElement> { };
+
+const Footer: FC<FooterProps> = ({ children}) => {
     return (<footer className={styles.container}>
-        My footer
+        {children}
     </footer>)
 }
 
-export default Footer
+export default Footer;

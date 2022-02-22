@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { FC, HTMLAttributes } from "react";
 
-export interface IMain {
-    children: React.ReactNode,
-}
+export interface MainProps extends HTMLAttributes<HTMLElement>{}
 
-const Main: FunctionComponent<IMain> = ({ children }) => {
+const Main: FC<MainProps> = ({ children }) => {
     return (<main>{children}</main>)
 }
 

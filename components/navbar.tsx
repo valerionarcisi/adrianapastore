@@ -1,31 +1,29 @@
 import Link from "next/link";
-import React, { FunctionComponent } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import Logo from "./logo";
 import styles from '../styles/Navbar.module.css'
 
-export interface INavlinkProps {
+export interface NavlinkProps extends HTMLAttributes<HTMLUListElement>{
     href?: string;
-    children: React.ReactNode,
 }
 
-const Navlink: FunctionComponent<INavlinkProps> = ({
+const Navlink: FC<NavlinkProps> = ({
     href='#',
     children,
+
 }) => {
     return (<Link href={href} passHref>
         {children}
     </Link>)
 }
 
-export interface INavProps {
-    children: React.ReactNode;
+export interface NavProps extends HTMLAttributes<HTMLUListElement> {}
+
+export interface NavCompositionProps extends HTMLAttributes<HTMLUListElement>{
+    Navlink: FC<NavlinkProps>
 }
 
-export interface INavComposition {
-    Navlink: FunctionComponent<INavlinkProps>
-}
-
-const Nav: FunctionComponent<INavProps> & INavComposition = ({
+const Nav: FC<NavProps> & NavCompositionProps = ({
     children
 }) => {
     return(<nav className={styles.container}>

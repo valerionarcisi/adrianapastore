@@ -1,11 +1,8 @@
-import React, { FunctionComponent } from "react"
+import { FC, HTMLAttributes } from "react"
 import "../styles/Post.module.css";
+export interface PostTitleProps extends HTMLAttributes<HTMLElement> {}
 
-export type PostTitle = {
-    children: React.ReactNode,
-}
-
-const PostTitle: FunctionComponent<PostTitle> = ({ children }) => {
+const PostTitle: FC<PostTitleProps> = ({ children }) => {
     return (
         <h1>
             {children}

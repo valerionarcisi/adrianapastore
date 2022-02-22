@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
-import React, { FunctionComponent } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import Footer from './footer';
 import Main from './main';
 import Navbar from './header';
@@ -27,8 +27,7 @@ export type OpenGraph = {
     site_name: string,
 }
 
-export interface ILayout {
-    children: React.ReactNode,
+export interface LayoutProps extends HTMLAttributes<HTMLElement> {
     title?: string,
     description?: string,
     canonical?: string
@@ -36,14 +35,14 @@ export interface ILayout {
     twitter?: TwitterTags,
 }
 
-const Layout: FunctionComponent<ILayout> = ({
+const Layout: FC<LayoutProps> = ({
     children,
     title = 'Adriana Pastore | Parent Coach, Educatrice',
     description = 'Adriana Pastore | Parent Coach, Educatrice',
     canonical = 'https://www.adrianapastore.com',
     openGraph,
     twitter,
-}: ILayout) => {
+}) => {
     return (<>
         <Head>
             <link rel="icon" href="/favicon.ico" />
