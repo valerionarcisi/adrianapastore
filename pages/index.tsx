@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import styles from '../styles/Home.module.css'
-import getAllPostsAbstract from '../lib/grapql/query/getAllPostsAbstract';
-import { PostAbstract } from '../lib/grapql/query/models';
+import getAllPostsAbstract from '../lib/graphql/query/getAllPostsAbstract';
+import { PostAbstract } from '../lib/graphql/query/models';
 import Image from 'next/image';
 import Link from 'next/link';
 

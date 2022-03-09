@@ -55,7 +55,7 @@ const Layout: FC<LayoutProps> = ({
             twitter={twitter}
         />
         <div
-            className="w-full min-h-screen bg-blue-600"
+            className="w-full min-h-screen"
         >
             <Navbar />
             <Main>{children}</Main>

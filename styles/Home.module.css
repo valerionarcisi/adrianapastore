@@ -1,5 +1,5 @@
 .hello__container {
-  @apply bg-red-300 flex justify-center items-center;
+  @apply flex justify-center items-center;
   height: calc(100vh - theme("spacing[16]"));
 }
 
@@ -8,7 +8,7 @@
 }
 
 .post__container {
-  @apply flex pb-4 bg-green-200
+  @apply flex pb-4
 }
 
 .post__description {

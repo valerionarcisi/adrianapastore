@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from "react"
-import { Content } from "../lib/grapql/query/models"
+import { Content } from "../lib/graphql/query/models"
 import postStyles from '../styles/Post.module.css'
 
 export interface PostBodyProps extends HTMLAttributes<HTMLElement> {

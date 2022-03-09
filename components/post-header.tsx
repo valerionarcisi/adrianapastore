@@ -1,6 +1,6 @@
 import { NextSeo } from "next-seo";
 import { FC, HTMLAttributes } from "react";
-import { Author, Seo } from "../lib/grapql/query/models";
+import { Author, Seo } from "../lib/graphql/query/models";
 import PostTitle from "./post-title";
 
 export interface PostHeaderProps extends HTMLAttributes<HTMLElement> {

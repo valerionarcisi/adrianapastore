@@ -1,8 +1,8 @@
 import { NextSeo } from "next-seo";
 import { GetStaticProps } from "next/types";
 import React, { FunctionComponent } from "react";
-import getAboutPage from "../lib/grapql/query/getAboutPage";
-import { AboutPageContent } from "../lib/grapql/query/models";
+import getAboutPage from "../lib/graphql/query/getAboutPage";
+import { AboutPageContent } from "../lib/graphql/query/models";
 
 export const getStaticProps: GetStaticProps = async () => {
     const { pages } = await getAboutPage();

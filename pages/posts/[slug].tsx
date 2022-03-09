@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import PostBody from "../../components/post-body";
-import { PostDetail } from "../../lib/grapql/query/models";
+import { PostDetail } from "../../lib/graphql/query/models";
 import { GetStaticPaths, GetStaticProps } from "next";
-import getPostBySlug from "../../lib/grapql/query/getPostBySlug";
+import getPostBySlug from "../../lib/graphql/query/getPostBySlug";
 import { ParsedUrlQuery } from "querystring";
 import PostHeader from "../../components/post-header";
-import getAllPostsAbstract from "../../lib/grapql/query/getAllPostsAbstract";
+import getAllPostsAbstract from "../../lib/graphql/query/getAllPostsAbstract";
 interface IParams extends ParsedUrlQuery {
     slug: string
 }
@@ -34,7 +34,7 @@ export interface IPost {
     post: PostDetail;
 }
 
-const Post: FunctionComponent<IPost> = ({ post }) => {
+const Post: React.FC<IPost> = ({ post }) => {
     return (<article>
         <PostHeader
             author={post.author}
@@ -46,7 +46,7 @@ const Post: FunctionComponent<IPost> = ({ post }) => {
             coverImage={post.coverImage.fileName}
         />
         <PostBody
-            html={post.content.html}
+            content={post.content}
         />
     </article>);
 }
