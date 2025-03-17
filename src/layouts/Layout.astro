@@ -1,10 +1,20 @@
 ---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
 }
 
-const { title, description = "Coach Genitoriale ed Educatrice che aiuta le famiglie a prosperare" } = Astro.props;
+const { 
+  title, 
+  description = "Coach Genitoriale ed Educatrice che aiuta le famiglie a prosperare",
+  image,
+  type
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,17 +22,17 @@ const { title, description = "Coach Genitoriale ed Educatrice che aiuta le famig
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title} | Adriana Pastore</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <SEO 
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+    />
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="container">
         <div class="logo">
           <a href="/">Adriana Pastore</a>
         </div>
@@ -35,49 +45,25 @@ const { title, description = "Coach Genitoriale ed Educatrice che aiuta le famig
       </nav>
     </header>
     
-    <main>
+    <main class="container">
       <slot />
     </main>
 
     <footer>
-      <p>&copy; {new Date().getFullYear()} Adriana Pastore. Tutti i diritti riservati.</p>
+      <p class="text-center">&copy; {new Date().getFullYear()} Adriana Pastore. Tutti i diritti riservati.</p>
     </footer>
   </body>
 </html>
 
 <style>
-  :root {
-    --color-primary: #557A95;
-    --color-secondary: #7395AE;
-    --color-text: #2C3E50;
-    --color-background: #F8F9FA;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Source Sans 3', sans-serif;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: var(--font-body);
-    color: var(--color-text);
-    line-height: 1.6;
-    background: var(--color-background);
-  }
-
   header {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 1rem 0;
+    background: var(--color-white);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-xl);
   }
 
   nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,23 +71,21 @@ const { title, description = "Coach Genitoriale ed Educatrice che aiuta le famig
 
   .logo a {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
     color: var(--color-primary);
-    text-decoration: none;
     font-weight: 700;
   }
 
   nav ul {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-xl);
     list-style: none;
   }
 
   nav a {
     color: var(--color-text);
-    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
   }
 
   nav a:hover {
@@ -109,29 +93,27 @@ const { title, description = "Coach Genitoriale ed Educatrice che aiuta le famig
   }
 
   main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
     min-height: calc(100vh - 180px);
   }
 
   footer {
     text-align: center;
-    padding: 2rem;
-    background: white;
-    border-top: 1px solid #eee;
+    padding: var(--spacing-xl);
+    background: var(--color-white);
+    border-top: 1px solid var(--color-gray-200);
+    color: var(--color-gray-600);
   }
 
   @media (max-width: 768px) {
     nav {
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--spacing-md);
       text-align: center;
     }
 
     nav ul {
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--spacing-md);
     }
   }
 </style>

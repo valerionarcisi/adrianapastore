@@ -12,7 +12,7 @@ const posts = await getBlogPosts();
       {posts.map(post => (
         <article class="post-card">
           {post.coverImage && (
-            <img src={post.coverImage.url} alt={post.coverImage.alt} />
+            <img src={post.coverImage.url} />
           )}
           <div class="post-content">
             <h2>{post.title}</h2>

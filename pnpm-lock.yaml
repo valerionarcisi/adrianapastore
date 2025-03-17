@@ -17,6 +17,9 @@ dependencies:
   graphql-request:
     specifier: ^6.1.0
     version: 6.1.0(graphql@16.10.0)
+  zod:
+    specifier: ^3.22.4
+    version: 3.24.2
 
 packages:
 
@@ -1187,6 +1190,7 @@ packages:
     resolution: {integrity: sha512-BGO5LtrGC7vxnqucAe/rmvKdJllfGaYWdyABvyMoXQlfYMb2bbRuReWR5tEGE//4LcNJj9XrkovTqNYRFZHAMQ==}
     engines: {node: '>=18'}
     hasBin: true
+    requiresBuild: true
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.25.1
       '@esbuild/android-arm': 0.25.1

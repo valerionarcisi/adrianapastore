@@ -13,7 +13,8 @@
     "astro": "^5.2.5",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
-    "@astrojs/rss": "^4.0.5"
+    "@astrojs/rss": "^4.0.5",
+    "zod": "^3.22.4"
   },
   "packageManager": "pnpm@8.15.4"
 }

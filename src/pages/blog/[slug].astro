@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getBlogPosts, getPost } from '../../lib/hygraph';
+import { getPost, getBlogPosts } from '../../lib/hygraph';
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -17,12 +17,16 @@ if (!post) {
 }
 ---
 
-<Layout title={post.title} description={post.excerpt}>
+<Layout 
+  title={post.title} 
+  description={post.excerpt}
+  image={post.coverImage?.url}
+  type="article"
+>
   <article class="blog-post">
     {post.coverImage && (
       <img 
         src={post.coverImage.url} 
-        alt={post.coverImage.alt}
         class="cover-image"
       />
     )}
