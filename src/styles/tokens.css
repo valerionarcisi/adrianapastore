@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
-  /* Colors */
+  /* Colors - invariati poiché non dipendono dal font-root */
   --color-primary: #b05d34; /* Warm autumn orange */
   --color-secondary: #8c3d27; /* Deep reddish-brown */
   --color-accent: #d98e04; /* Golden yellow */
@@ -9,7 +9,7 @@
   --color-background: #fdf6ec; /* Soft cream background */
   --color-white: #ffffff;
 
-  /* Grays and Neutrals */
+  /* Grays and Neutrals - invariati */
   --color-gray-100: #faf3e3; /* Light beige */
   --color-gray-200: #ede0d4; /* Muted sand */
   --color-gray-300: #d6bfa5; /* Light tan */
@@ -20,60 +20,60 @@
   --color-gray-800: #3b2a22; /* Espresso brown */
   --color-gray-900: #261a16; /* Almost black brown */
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(141, 79, 48, 0.08);
-  --shadow-md: 0 4px 8px rgba(141, 79, 48, 0.12);
-  --shadow-lg: 0 6px 12px rgba(141, 79, 48, 0.18);
+  /* Shadows - aggiustati per la nuova scala */
+  --shadow-sm: 0 0.2rem 0.4rem rgba(141, 79, 48, 0.08);
+  --shadow-md: 0 0.4rem 0.8rem rgba(141, 79, 48, 0.12);
+  --shadow-lg: 0 0.6rem 1.2rem rgba(141, 79, 48, 0.18);
   
-
-  /* Typography */
+  /* Typography  per font-root di 10px */
   --font-heading: "Gilda Display", serif;
   --font-body: "Inter", sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
+  --font-size-xs: 1.2rem;      /* 12px */
+  --font-size-sm: 1.4rem;      /* 14px */
+  --font-size-base: 1.6rem;    /* 16px */
+  --font-size-lg: 1.8rem;      /* 18px */
+  --font-size-xl: 2rem;        /* 20px */
+  --font-size-2xl: 2.4rem;     /* 24px */
+  --font-size-3xl: 3rem;       /* 30px */
+  --font-size-4xl: 3.6rem;     /* 36px */
+  --font-size-5xl: 4.8rem;     /* 48px */
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 2.5rem;
-  --spacing-3xl: 3rem;
-  --spacing-4xl: 4rem;
+  /* Spacing  per font-root di 10px */
+  --spacing-xs: 0.4rem;        /* 4px */
+  --spacing-sm: 0.8rem;        /* 8px */
+  --spacing-md: 1.6rem;        /* 16px */
+  --spacing-lg: 2.4rem;        /* 24px */
+  --spacing-xl: 3.2rem;        /* 32px */
+  --spacing-2xl: 4rem;         /* 40px */
+  --spacing-3xl: 4.8rem;       /* 48px */
+  --spacing-4xl: 6.4rem;       /* 64px */
 
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  /* Border Radius  */
+  --radius-sm: 0.4rem;         /* 4px */
+  --radius-md: 0.8rem;         /* 8px */
+  --radius-lg: 1.6rem;         /* 16px */
+  --radius-xl: 3.2rem;         /* 32px */
 
-
-  /* Transitions */
+  /* Transitions - invariati poiché non dipendono dal font-root */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 
-  /* Container */
-  --container-max-width: 1200px;
-  --container-padding: 2rem;
+  /* Container  */
+  --container-max-width: 120rem;  /* 1200px */
+  --container-padding: 3.2rem;    /* 32px */
 
+  /* Blockquote  */
   --blockquote-text: var(--color-text);
   --blockquote-border: var(--color-accent);
   --blockquote-bg: var(--color-gray-200);
   --blockquote-shadow: var(--color-gray-300);
-  --blockquote-font-size: 1.4rem;
-  --blockquote-padding: 1rem;
+  --blockquote-font-size: 2.2rem;  /* 22px */
+  --blockquote-padding: 1.6rem;    /* 16px */
 }
 
 @media (max-width: 768px) {
   :root {
-    --container-padding: 1rem;
+    --container-padding: 1.6rem;  /* 16px */
   }
 }
