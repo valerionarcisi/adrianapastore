@@ -39,7 +39,6 @@ const {
         </button>
 
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="/">Home</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/chi-sono">Chi Sono</a></li>
           <li><a href="/contatti">Contatti</a></li>
@@ -253,6 +252,7 @@ const {
       padding: 0;
       margin: 0;
       z-index: 999;
+ 
     }
 
     .nav-menu.is-active {
@@ -264,7 +264,10 @@ const {
     }
 
     .nav-menu a {
-      font-size: 1.5rem;
+      font-size: var(--font-size-lg);
+      @media (max-width: 768px) {
+      font-size: var( --font-size-2xl);
+      }
     }
 
     .no-scroll {

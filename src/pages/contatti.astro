@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -6,12 +7,10 @@ import Layout from '../layouts/Layout.astro';
   title="Contatti | Adriana Pastore" 
   description="Contattami per una consulenza o per maggiori informazioni sui miei servizi di coaching genitoriale"
 >
-  <section class="hero">
-    <div class="container">
-      <h1>Contatti</h1>
-      <p class="subtitle">Sono qui per rispondere alle tue domande e supportarti nel tuo percorso genitoriale</p>
-    </div>
-  </section>
+  <Hero
+   title="Contatti" 
+   description="Sono qui per rispondere alle tue domande e supportarti nel tuo percorso genitoriale"
+  />
   
   <section class="contact-section">
     <div class="container">
@@ -157,38 +156,10 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
-<style>
-  /* Hero Section */
-  .hero {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--spacing-4xl) 0;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-5xl);
-    margin-bottom: var(--spacing-md);
-  }
-  
-  .hero .subtitle {
-    font-size: var(--font-size-xl);
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-  }
-  
-  /* Container */
-  .container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
-  }
-  
+<style>  
   /* Contact Section */
   .contact-section {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-xl) 0;
     background-color: var(--color-background);
   }
   

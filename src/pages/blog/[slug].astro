@@ -1,4 +1,5 @@
 ---
+import Hero from "../../components/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getPost, getBlogPosts } from "../../lib/hygraph";
 
@@ -11,7 +12,6 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const post = await getPost(slug);
-
 if (!post) {
   return Astro.redirect("/404");
 }
@@ -23,22 +23,36 @@ if (!post) {
   image={post.coverImage?.url}
   type="article"
 >
-  <article class="mb-8">
-    <div class="post-header">
-      {post.coverImage && <img src={post.coverImage.url} class="cover-image" />}
-      <h1>{post.title}</h1>
-      <time datetime={post.publishedAt}>
-        {
-          new Date(post.publishedAt).toLocaleDateString("it-IT", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        }
-      </time>
+  <article class:list={["mt-4", "mb-4"]}>
+    <header class:list={["container"]}>
+      <h1>
+        {post.title}
+      </h1>
+      {
+        post.publishedAt ? (
+          <time datetime={post.publishedAt}>
+            {new Date(post.publishedAt).toLocaleDateString("it-IT", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        ) : null
+      }
+    </header>
+    {
+      post.coverImage?.url ? (
+        <div
+          class="cover-image"
+          style={`background-image: url(${post.coverImage?.url})`}
+        />
+      ) : (
+        ""
+      )
+    }
+    <div class="post-content">
+      <div set:html={post.content.html} />
     </div>
-
-    <div class="post-content" set:html={post.content.html} />
   </article>
   <div class="cta-section">
     <div class="cta-image">
@@ -61,44 +75,86 @@ if (!post) {
 </Layout>
 
 <style>
+  article {
+    font-size: var(--font-size-xl);
+    marign: var(--spacing-lg);
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-lg);
+      margin: var(--spacing-md);
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--color-white);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: var(--color-text);
+      max-width: 80rem;
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      min-height: 18rem;
+      h1 {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-4xl);
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+      }
+      time {
+        display: inline-block;
+        margin-top: var(--spacing-sm);
+        color: var(--color-text);
+        font-style: italic;
+        font-size: var(--font-size-base);
+      }
+      @media (max-width: 768px) {
+        min-height: 23rem;
+      }
+    }
+  }
   .cover-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 2rem;
+    margin: 0 auto;
+    max-width: 80rem;
+    line-height: 1.8;
+    padding: 0;
+    margin-top: -5rem;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    height: 40rem;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 -3px 3px rgba(142, 92, 0, 0.311);
+--color-accent
   }
 
   .post-header {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
     text-align: center;
   }
 
-  .post-header h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-text);
-    margin-bottom: 1rem;
-  }
-
-  time {
-    color: var(--color-secondary);
-    font-style: italic;
-  }
-
   .post-content {
-    background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background: var(--color-white);
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 80rem;
     line-height: 1.8;
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: var(--spacing-lg);
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--color-primary);
+    }
+
     h2,
     h3 {
       text-align: center;
       font-family: var(--font-heading);
-      color: var(--color-text);
       margin: 2rem 0 1rem;
     }
     p {
@@ -108,7 +164,6 @@ if (!post) {
       max-width: 100%;
       height: auto;
       border-radius: 0.5rem;
-      margin: 2rem 0;
     }
   }
 </style>

@@ -1,4 +1,6 @@
 ---
+import Hero from "../components/Hero.astro";
+import PostCard from "../components/PostCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { getBlogPosts } from "../lib/hygraph";
 
@@ -6,131 +8,33 @@ const recentPosts = await getBlogPosts(4);
 ---
 
 <Layout title="Home">
-  <section class="hero">
-    <h1>Benvenuti nel Mio Blog</h1>
-    <p>
-      Coach Genitoriale ed Educatrice che aiuta le famiglie a creare relazioni
-      armoniose
-    </p>
-  </section>
+  <Hero
+    title="Benvenuti nel Mio Blog"
+    description={`Coach Genitoriale ed Educatrice che aiuta le famiglie a creare relazioni
+    armoniose`}
+  />
 
   <section class="recent-posts">
     <h2>Articoli Recenti</h2>
     <div class="posts-grid">
-      {
-        recentPosts.slice(0, 3).map((post) => (
-          <article class="post-card">
-            {post.coverImage && <img src={post.coverImage.url} />}
-            <div class="post-content">
-              <h3>{post.title}</h3>
-              <p>{post.excerpt}</p>
-              <a href={`/blog/${post.slug}`} class="read-more">
-                Leggi di più →
-              </a>
-            </div>
-          </article>
-        ))
-      }
+      {recentPosts.map((post) => <PostCard post={post} />)}
     </div>
   </section>
 </Layout>
 
 <style>
-  .hero {
-    text-align: center;
-    padding: 4rem 0;
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-      url("/hero-background.jpg") center/cover;
-    border-radius: 1rem;
-    margin-bottom: 4rem;
-  }
-
-  .hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--color-text);
-  }
-
   .recent-posts {
     margin: 0 auto;
     max-width: var(--container-max-width);
     padding: 0 var(--container-padding);
   }
-
-  .recent-posts h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-  }
-
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
-  .post-card {
-    background: white;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-
-  .post-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .post-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .post-content {
-    padding: 1.5rem;
-  }
-
-  .post-content h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-  }
-
-  .post-content p {
-    margin-bottom: 1rem;
-  }
-
-  .read-more {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .read-more:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 768px) {
-    .hero {
-      padding: 2rem 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-    }
-
     .posts-grid {
       grid-template-columns: 1fr;
     }
