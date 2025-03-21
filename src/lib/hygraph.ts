@@ -1,6 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import { PostSchema } from './models';
-import type { Post } from './models';
+import type { Post, GraphQLResponse } from './models';
 
 if (!import.meta.env.HYGRAPH_ENDPOINT) {
   throw new Error('HYGRAPH_ENDPOINT environment variable is not defined');
@@ -8,10 +8,11 @@ if (!import.meta.env.HYGRAPH_ENDPOINT) {
 
 const hygraphClient = new GraphQLClient(import.meta.env.HYGRAPH_ENDPOINT);
 
-export const getBlogPosts = async (): Promise<Post[]> => {
+
+export const getBlogPosts = async (limit?: number): Promise<Post[]> => {
   const query = `
-    query BlogPosts {
-      posts(orderBy: publishedAt_DESC) {
+    query BlogPosts($limit: Int) {
+      posts(orderBy: publishedAt_DESC, first: $limit) {
         id
         title
         slug
@@ -27,7 +28,9 @@ export const getBlogPosts = async (): Promise<Post[]> => {
     }
   `;
 
-  const { posts } = await hygraphClient.request(query);
+
+  const variables = limit ? { limit } : {};
+  const { posts } = await hygraphClient.request<GraphQLResponse>(query, variables);
   return posts.map((post: unknown) => PostSchema.parse(post));
 };
 

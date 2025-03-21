@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { getBlogPosts } from "../lib/hygraph";
 
-const recentPosts = await getBlogPosts();
+const recentPosts = await getBlogPosts(4);
 ---
 
 <Layout title="Home">

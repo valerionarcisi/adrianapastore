@@ -19,5 +19,10 @@ export const PostSchema = z.object({
   coverImage: ImageSchema.optional(),
 });
 
+
+export type GraphQLResponse =  {
+  posts: Post[];
+}
+
 export type Image = z.infer<typeof ImageSchema>;
 export type Post = z.infer<typeof PostSchema>;
