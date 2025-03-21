@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getBlogPosts } from '../lib/hygraph';
+import Layout from "../layouts/Layout.astro";
+import { getBlogPosts } from "../lib/hygraph";
 
 const recentPosts = await getBlogPosts();
 ---
@@ -8,24 +8,29 @@ const recentPosts = await getBlogPosts();
 <Layout title="Home">
   <section class="hero">
     <h1>Benvenuti nel Mio Blog</h1>
-    <p>Coach Genitoriale ed Educatrice che aiuta le famiglie a creare relazioni armoniose</p>
+    <p>
+      Coach Genitoriale ed Educatrice che aiuta le famiglie a creare relazioni
+      armoniose
+    </p>
   </section>
 
   <section class="recent-posts">
     <h2>Articoli Recenti</h2>
     <div class="posts-grid">
-      {recentPosts.slice(0, 3).map(post => (
-        <article class="post-card">
-          {post.coverImage && (
-            <img src={post.coverImage.url} alt={post.coverImage.alt} />
-          )}
-          <div class="post-content">
-            <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <a href={`/blog/${post.slug}`} class="read-more">Leggi di più →</a>
-          </div>
-        </article>
-      ))}
+      {
+        recentPosts.slice(0, 3).map((post) => (
+          <article class="post-card">
+            {post.coverImage && <img src={post.coverImage.url} />}
+            <div class="post-content">
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+              <a href={`/blog/${post.slug}`} class="read-more">
+                Leggi di più →
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 </Layout>
@@ -34,8 +39,9 @@ const recentPosts = await getBlogPosts();
   .hero {
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                url('/hero-background.jpg') center/cover;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+      url("/hero-background.jpg") center/cover;
     border-radius: 1rem;
     margin-bottom: 4rem;
   }
@@ -55,7 +61,9 @@ const recentPosts = await getBlogPosts();
   }
 
   .recent-posts {
-    margin-bottom: 4rem;
+    margin: 0 auto;
+    max-width: var(--container-max-width);
+    padding: 0 var(--container-padding);
   }
 
   .recent-posts h2 {
@@ -75,7 +83,7 @@ const recentPosts = await getBlogPosts();
     background: white;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
 

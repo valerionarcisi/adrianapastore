@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getPost, getBlogPosts } from '../../lib/hygraph';
+import Layout from "../../layouts/Layout.astro";
+import { getPost, getBlogPosts } from "../../lib/hygraph";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
   }));
 }
@@ -13,49 +13,54 @@ const { slug } = Astro.params;
 const post = await getPost(slug);
 
 if (!post) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
 ---
 
-<Layout 
-  title={post.title} 
+<Layout
+  title={post.title}
   description={post.excerpt}
   image={post.coverImage?.url}
   type="article"
 >
-  <article class="blog-post">
-    {post.coverImage && (
-      <img 
-        src={post.coverImage.url} 
-        class="cover-image"
-      />
-    )}
-    
+  <article class="mb-8">
     <div class="post-header">
+      {post.coverImage && <img src={post.coverImage.url} class="cover-image" />}
       <h1>{post.title}</h1>
       <time datetime={post.publishedAt}>
-        {new Date(post.publishedAt).toLocaleDateString('it-IT', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
+        {
+          new Date(post.publishedAt).toLocaleDateString("it-IT", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
       </time>
     </div>
 
     <div class="post-content" set:html={post.content.html} />
   </article>
+  <div class="cta-section">
+    <div class="cta-image">
+      <img src="/public/adriana-pastore-avatar.jpeg" alt="Adriana Pastore" />
+    </div>
+    <div class="cta-content">
+      <h2>Fai il Primo Passo</h2>
+      <h3>Prenota una chiamata gratuita di consulenza con me</h3>
+      <button
+        class="btn btn-primary"
+        onclick="window.location.href='mailto:adriana84.pastore@gmail.com'"
+        >Prenota una Chiamata Gratuita</button
+      >
+      <p class="cta-subtext">
+        Insieme esploreremo nuove idee per la tua famiglia e scopriremo come il
+        parent coaching può aiutarti.
+      </p>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
   .cover-image {
     width: 100%;
     height: 400px;
@@ -82,38 +87,28 @@ if (!post) {
   }
 
   .post-content {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 800px;
     line-height: 1.8;
-  }
-
-  .post-content h2,
-  .post-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-text);
-    margin: 2rem 0 1rem;
-  }
-
-  .post-content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    margin: 2rem 0;
-  }
-
-  @media (max-width: 768px) {
-    .blog-post {
-      padding: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    h2,
+    h3 {
+      text-align: center;
+      font-family: var(--font-heading);
+      color: var(--color-text);
+      margin: 2rem 0 1rem;
     }
-
-    .cover-image {
-      height: 250px;
+    p {
+      margin-bottom: 1.5rem;
     }
-
-    .post-header h1 {
-      font-size: 2rem;
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
     }
   }
 </style>

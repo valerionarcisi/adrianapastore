@@ -1,23 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   /* Colors */
-  --color-primary: #557A95;
-  --color-secondary: #7395AE;
-  --color-text: #2C3E50;
-  --color-background: #F8F9FA;
-  --color-white: #FFFFFF;
-  --color-gray-100: #F8F9FA;
-  --color-gray-200: #E9ECEF;
-  --color-gray-300: #DEE2E6;
-  --color-gray-400: #CED4DA;
-  --color-gray-500: #ADB5BD;
-  --color-gray-600: #6C757D;
-  --color-gray-700: #495057;
-  --color-gray-800: #343A40;
-  --color-gray-900: #212529;
+  --color-primary: #b05d34; /* Warm autumn orange */
+  --color-secondary: #8c3d27; /* Deep reddish-brown */
+  --color-accent: #d98e04; /* Golden yellow */
+  --color-text: #3d2c23; /* Deep brown for readability */
+  --color-background: #fdf6ec; /* Soft cream background */
+  --color-white: #ffffff;
+
+  /* Grays and Neutrals */
+  --color-gray-100: #faf3e3; /* Light beige */
+  --color-gray-200: #ede0d4; /* Muted sand */
+  --color-gray-300: #d6bfa5; /* Light tan */
+  --color-gray-400: #b89e86; /* Warm taupe */
+  --color-gray-500: #8f7566; /* Earthy brown-gray */
+  --color-gray-600: #70584a; /* Deep taupe */
+  --color-gray-700: #543d32; /* Dark wood brown */
+  --color-gray-800: #3b2a22; /* Espresso brown */
+  --color-gray-900: #261a16; /* Almost black brown */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(141, 79, 48, 0.08);
+  --shadow-md: 0 4px 8px rgba(141, 79, 48, 0.12);
+  --shadow-lg: 0 6px 12px rgba(141, 79, 48, 0.18);
+  
 
   /* Typography */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Source Sans 3', sans-serif;
+  --font-heading: "Gilda Display", serif;
+  --font-body: "Inter", sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -43,10 +54,6 @@
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -56,6 +63,13 @@
   /* Container */
   --container-max-width: 1200px;
   --container-padding: 2rem;
+
+  --blockquote-text: var(--color-text);
+  --blockquote-border: var(--color-accent);
+  --blockquote-bg: var(--color-gray-200);
+  --blockquote-shadow: var(--color-gray-300);
+  --blockquote-font-size: 1.4rem;
+  --blockquote-padding: 1rem;
 }
 
 @media (max-width: 768px) {
