@@ -39,7 +39,7 @@ if (!post) {
           ) : null
         }
       </header>
-      
+
       {
         post.coverImage?.url ? (
           <div
@@ -48,14 +48,31 @@ if (!post) {
           />
         ) : null
       }
-      
+
       <div class="post-content">
         <div set:html={post.content.html} />
       </div>
     </div>
   </article>
-  
-  <!-- CTA Section rimane invariata -->
+
+  <div class="cta-section">
+    <div class="cta-image">
+      <img src="/public/adriana-pastore-avatar.jpeg" alt="Adriana Pastore" />
+    </div>
+    <div class="cta-content">
+      <h2>Fai il Primo Passo</h2>
+      <h3>Prenota una chiamata gratuita di consulenza con me</h3>
+      <button
+        class="btn btn-primary"
+        onclick="window.location.href='mailto:adriana84.pastore@gmail.com'"
+        >Prenota una Chiamata Gratuita</button
+      >
+      <p class="cta-subtext">
+        Insieme esploreremo nuove idee per la tua famiglia e scopriremo come il
+        parent coaching può aiutarti.
+      </p>
+    </div>
+  </div>
 </Layout>
 
 <style>
@@ -68,7 +85,7 @@ if (!post) {
       margin: var(--spacing-md);
     }
   }
-  
+
   .article-container {
     max-width: 80rem;
     margin: 0 auto;
@@ -94,7 +111,7 @@ if (!post) {
     font-size: var(--font-size-4xl);
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
-    
+
     @media (max-width: 768px) {
       font-size: var(--font-size-3xl);
     }
@@ -116,7 +133,7 @@ if (!post) {
     box-shadow: 0 -3px 3px rgba(142, 92, 0, 0.311);
     position: relative;
     z-index: 3;
-    
+
     @media (max-width: 768px) {
       height: 25rem;
     }
@@ -147,11 +164,11 @@ if (!post) {
     font-family: var(--font-heading);
     margin: 2rem 0 1rem;
   }
-  
+
   .post-content p {
     margin-bottom: 1.5rem;
   }
-  
+
   .post-content img {
     max-width: 100%;
     height: auto;
@@ -160,11 +177,13 @@ if (!post) {
 
   @media (max-width: 768px) {
     .post-header {
-      padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + 1rem);
+      padding: var(--spacing-lg) var(--spacing-md)
+        calc(var(--spacing-lg) + 1rem);
     }
-    
+
     .post-content {
-      padding: calc(var(--spacing-xl) + 1rem) var(--spacing-md) var(--spacing-md);
+      padding: calc(var(--spacing-xl) + 1rem) var(--spacing-md)
+        var(--spacing-md);
     }
   }
 </style>
