@@ -8,7 +8,6 @@ if (!import.meta.env.HYGRAPH_ENDPOINT) {
 
 const hygraphClient = new GraphQLClient(import.meta.env.HYGRAPH_ENDPOINT);
 
-
 export const getBlogPosts = async (limit?: number): Promise<Post[]> => {
   const query = `
     query BlogPosts($limit: Int) {
@@ -24,10 +23,10 @@ export const getBlogPosts = async (limit?: number): Promise<Post[]> => {
         coverImage {
           url
         }
+        tags
       }
     }
   `;
-
 
   const variables = limit ? { limit } : {};
   const { posts } = await hygraphClient.request<GraphQLResponse>(query, variables);
@@ -49,6 +48,7 @@ export const getPost = async (slug: string): Promise<Post | null> => {
         coverImage {
           url
         }
+        tags
       }
     }
   `;

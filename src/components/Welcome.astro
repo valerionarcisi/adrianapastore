@@ -1,0 +1,198 @@
+---
+
+---
+
+<section class="welcome">
+  <div class="welcome-header">
+    <div class="circle-container">
+      <div class="profile-circle">
+        <img src="/public/adriana-pastore-avatar.jpeg" alt="Profile" class="profile-image" />
+      </div>
+      <div class="decorative-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+      </div>
+    </div>
+    <div class="welcome-content">
+      <h1>Ciao a tutti! Sono <span class="name">Adriana.</span></h1>
+      <p class="subtitle">
+        Supporto le mamme e i papà che si sentono inadeguati
+      </p>
+      <a href="#services" class="btn btn-primary">
+        Scopri i miei servizi dedicati ai genitori
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .welcome {
+    padding: var(--spacing-4xl) var(--container-padding);
+    background: linear-gradient(
+      135deg,
+      var(--color-background-cta),
+      var(--color-gray-100)
+    );
+    overflow: hidden;
+    position: relative;
+  }
+
+  .welcome-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-4xl);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  .circle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  .profile-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: var(--color-primary);
+    padding: 8px;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .decorative-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .circle-1 {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 198, 92, 0.3);
+    top: -20px;
+    right: 20px;
+  }
+
+  .circle-2 {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(176, 93, 52, 0.2);
+    bottom: 40px;
+    left: -20px;
+  }
+
+  .circle-3 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(140, 61, 39, 0.15);
+    top: 50%;
+    right: -40px;
+  }
+
+  .welcome-content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-4xl);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+  }
+
+  .name {
+    color: var(--color-primary);
+    font-style: italic;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-700);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 968px) {
+    .welcome-header {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-2xl);
+    }
+
+    .circle-container {
+      width: 300px;
+      height: 300px;
+    }
+
+    .profile-circle {
+      width: 250px;
+      height: 250px;
+    }
+
+    h1 {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome {
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .circle-container {
+      width: 250px;
+      height: 250px;
+    }
+
+    .profile-circle {
+      width: 200px;
+      height: 200px;
+    }
+
+    h1 {
+      font-size: var(--font-size-2xl);
+    }
+
+    .subtitle {
+      font-size: var(--font-size-lg);
+    }
+  }
+</style>

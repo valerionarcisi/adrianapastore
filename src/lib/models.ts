@@ -1,28 +1,25 @@
-import { z } from 'zod';
-
-export const ImageSchema = z.object({
-  url: z.string().url(),
-});
+import { z } from "zod";
 
 export const PostSchema = z.object({
   id: z.string(),
   title: z.string(),
   slug: z.string(),
-  excerpt: z.string(),
-  publishedAt: z.string().refine(
-    (val) => !isNaN(Date.parse(val)),
-    { message: "Deve essere una data ISO 8601 valida" }
-  ),
+  excerpt: z.string().nullable(),
+  publishedAt: z.string().nullable(),
   content: z.object({
     html: z.string(),
   }),
-  coverImage: ImageSchema.optional(),
+  coverImage: z
+    .object({
+      url: z.string(),
+    })
+    .nullable(),
+  tags: z.array(z.string(),).optional(),
 });
 
-
-export type GraphQLResponse =  {
-  posts: Post[];
-}
-
-export type Image = z.infer<typeof ImageSchema>;
 export type Post = z.infer<typeof PostSchema>;
+
+export interface GraphQLResponse {
+  posts: Post[];
+  post?: Post;
+}

@@ -1,6 +1,6 @@
 ---
-import Hero from "../components/Hero.astro";
 import PostCard from "../components/PostCard.astro";
+import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getBlogPosts } from "../lib/hygraph";
 
@@ -8,12 +8,7 @@ const recentPosts = await getBlogPosts(4);
 ---
 
 <Layout title="Home">
-  <Hero
-    title="Benvenuti nel Mio Blog"
-    description={`Coach Genitoriale ed Educatrice che aiuta le famiglie a creare relazioni
-    armoniose`}
-  />
-
+  <Welcome/>
   <section class="recent-posts">
     <h2>Articoli Recenti</h2>
     <div class="posts-grid">
@@ -27,6 +22,10 @@ const recentPosts = await getBlogPosts(4);
     margin: 0 auto;
     max-width: var(--container-max-width);
     padding: 0 var(--container-padding);
+    margin-bottom: var(--container-padding);
+    h2 {
+      text-align: center;
+    }
   }
   .posts-grid {
     display: grid;
