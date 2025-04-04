@@ -1,5 +1,5 @@
 ---
-import Hero from "../components/Hero.astro";
+import Title from "../components/Title.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
   title="Privacy Policy | Adriana Pastore"
   description="Informativa sulla privacy e sul trattamento dei dati personali"
 >
-  <Hero
+  <Title
     title="Privacy Policy"
     description="Informativa sul trattamento dei dati personali"
   />
@@ -171,27 +171,13 @@ import Layout from "../layouts/Layout.astro";
             >.
           </p>
 
-          <h3>6.2 Plausible Analytics</h3>
-          <p>
-            Utilizziamo Plausible Analytics per raccogliere statistiche anonime
-            sull'utilizzo del nostro sito. Plausible è uno strumento di analisi
-            privacy-friendly che non utilizza cookie e non raccoglie dati
-            personali. Le informazioni raccolte sono aggregate e non possono
-            essere utilizzate per identificarti personalmente. Per maggiori
-            informazioni, consulta la <a
-              href="https://plausible.io/data-policy"
-              target="_blank"
-              rel="noopener noreferrer">Policy sui dati di Plausible</a
-            >.
-          </p>
-
-          <h3>6.3 Hyvor Talk</h3>
+          <h3>6.2 Hyvor Talk</h3>
           <p>
             Utilizziamo Hyvor Talk per gestire i commenti sul blog e il servizio
             newsletter. Quando interagisci con questi componenti, i tuoi dati
             (come email, nome e il contenuto dei commenti) vengono elaborati da
             Hyvor Talk. Puoi consultare la loro <a
-              href="https://hyvor.com/privacy-policy"
+              href="https://talk.hyvor.com/docs#privacy-focused"
               target="_blank"
               rel="noopener noreferrer">Privacy Policy</a
             > per maggiori dettagli su come gestiscono i tuoi dati.
@@ -277,14 +263,6 @@ import Layout from "../layouts/Layout.astro";
             <li>
               <strong>Google Fonts:</strong> per visualizzare caratteri tipografici
               sul sito
-            </li>
-            <li>
-              <strong>Plausible Analytics:</strong> per statistiche anonime (non
-              utilizza cookie)
-            </li>
-            <li>
-              <strong>Hyvor Talk:</strong> per gestire commenti e newsletter (utilizza
-              cookie essenziali per il funzionamento)
             </li>
           </ul>
           <p>
@@ -468,13 +446,6 @@ import Layout from "../layouts/Layout.astro";
 
   /* Responsive Styles */
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: var(--font-size-4xl);
-    }
-
-    .hero .subtitle {
-      font-size: var(--font-size-lg);
-    }
 
     .privacy-card {
       padding: var(--spacing-xl);

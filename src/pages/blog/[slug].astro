@@ -1,4 +1,5 @@
 ---
+import SectionDivider from "../../components/SectionDivider.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getPost, getBlogPosts } from "../../lib/hygraph";
 
@@ -62,6 +63,12 @@ if (!post) {
 
       <div class="post-content">
         <div set:html={post.content.html} />
+        <script async src="https://talk.hyvor.com/embed/embed.js" type="module"
+        ></script>
+        <div class="mt-8">
+          <hyvor-talk-comments website-id="12979" page-id=""
+          ></hyvor-talk-comments>
+        </div>
       </div>
     </div>
   </article>
@@ -82,6 +89,19 @@ if (!post) {
         Insieme esploreremo nuove idee per la tua famiglia e scopriremo come il
         parent coaching può aiutarti.
       </p>
+      <SectionDivider type="dotted-arrow" height="100px" />
+      <div style="max-width: 45rem;" class="mb-8">
+        <h2>Resta in contatto con me</h2>
+        <script
+          async
+          src="https://talk.hyvor.com/embed/newsletter.js"
+          type="module"></script>
+        <hyvor-talk-newsletter
+          website-id="12979"
+          t-button-subscribe="Iscriviti"
+          t-button-subscribed="Iscritto"
+          t-save="Modifica Preferenze"></hyvor-talk-newsletter>
+      </div>
     </div>
   </div>
 </Layout>
@@ -101,11 +121,12 @@ if (!post) {
     h3,
     p {
       line-height: 1.6;
+      
     }
     img {
       max-width: 100%;
       height: auto;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
     }
     @media (max-width: 768px) {
       font-size: var(--font-size-lg);
@@ -159,9 +180,15 @@ if (!post) {
   }
 
   .article-container {
-    max-width: 80rem;
+    max-width: var(--container-max-width);
     margin: 0 auto;
     position: relative;
+    padding: 0 var(--spacing-3xl);
+    margin-bottom: var(--spacing-2xl);
+
+    @media (max-width: 768px) {
+      padding: var(--spacing-md);
+    }
   }
 
   .post-header {
@@ -198,7 +225,7 @@ if (!post) {
 
   .cover-image {
     margin: -2rem auto 0;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     height: 80rem;
     background-size: cover;
     background-position: center;

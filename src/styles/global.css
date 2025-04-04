@@ -46,6 +46,7 @@ h6 {
 
 p {
   margin-bottom: var(--spacing-md);
+  font-weight: 300;
 }
 
 /* Container */
@@ -131,6 +132,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  @media (max-width: 768px) {
+    max-width: 45rem;
+  }
 }
 
 

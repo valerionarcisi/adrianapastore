@@ -1,0 +1,89 @@
+---
+export interface Props {
+  colorStart?: string;
+  colorEnd?: string;
+  height?: string;
+  type?: 'wave' | 'curve' | 'triangle' | 'zigzag' | 'dotted-arrow';
+  flip?: boolean;
+}
+
+const {
+  colorStart = 'var(--color-secondary)',
+  colorEnd = 'var(--color-accent)',
+  height = '50px',
+  type = 'wave',
+  flip = false
+} = Astro.props;
+
+// Different SVG paths for each type
+const paths = {
+  wave: "M0,0 C320,100 640,100 1000,0 L1000,100 L0,100 Z",
+  curve: "M0,100 C150,-100 850,-100 1000,100 L1000,100 L0,100 Z", // Curva ancora più accentuata
+  triangle: "M0,100 L1000,100 L500,0 Z",
+  zigzag: "M0,100 L0,100 L250,0 L500,100 L750,0 L1000,100 L1000,100 Z",
+  'dotted-arrow': "",
+};
+
+const selectedPath = paths[type];
+const transform = flip ? 'rotate(180, 500, 50)' : '';
+const gradientId = `gradient-${Math.random().toString(36).substring(7)}`;
+---
+
+{type === 'dotted-arrow' ? (
+  <div class="divider-container dotted-arrow-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 50" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style={`stop-color:${colorStart};stop-opacity:1`} />
+          <stop offset="100%" style={`stop-color:${colorEnd};stop-opacity:1`} />
+        </linearGradient>
+      </defs>
+      <path
+        class="dotted-path"
+        d="M0,25 C400,15 800,35 1170,25"
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        stroke-width="3"
+        stroke-dasharray="10,10"
+        stroke-linecap="round"
+        style="filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));"
+      />
+
+      <path
+        d="M1170,25 L1200,25"
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        stroke-width="3"
+        style="filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));"
+      />
+    </svg>
+  </div>
+) : (
+  <div class="divider-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path fill={colorStart} d={selectedPath} transform={transform}></path>
+    </svg>
+  </div>
+)}
+
+<style define:vars={{ dividerHeight: height }}>
+  .divider-container {
+    position: relative;
+    width: 100%;
+    height: var(--dividerHeight);
+    overflow: hidden;
+    line-height: 0;
+    margin: 20px 0;
+  }
+
+  svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dotted-arrow-container {
+    padding: 10px 0;
+  }
+</style>

@@ -1,40 +1,123 @@
 ---
 import PostCard from "../components/PostCard.astro";
+import SectionDivider from "../components/SectionDivider.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getBlogPosts } from "../lib/hygraph";
 
 const recentPosts = await getBlogPosts(4);
+
+const services = [
+  {
+    title: "Parent Coaching",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Percorsi personalizzati per genitori che desiderano migliorare la relazione con i propri figli e sviluppare strategie educative efficaci e rispettose.",
+    slug: "contatti",
+  },
+  {
+    title: "Consulenza Educativa",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Supporto specializzato per affrontare sfide educative specifiche e costruire un ambiente familiare sereno, basato su comunicazione e comprensione reciproca.",
+    slug: "contatti",
+  },
+  {
+    title: "Laboratori per Famiglie",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Attività di gruppo per famiglie, per imparare divertendosi e condividere esperienze con altri genitori in un ambiente accogliente e non giudicante.",
+    slug: "contatti",
+  },
+  {
+    title: "Supporto per Adolescenti",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
+    slug: "contatti",
+  },
+  {
+    title: "Supporto per Adolescenti",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
+    slug: "contatti",
+  },
+  {
+    title: "Supporto per Adolescenti",
+    imagePath:
+      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
+    description:
+      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
+    slug: "contatti",
+  },
+];
 ---
 
 <Layout title="Home">
-  <Welcome/>
-  <section class="recent-posts">
-    <h2>Articoli Recenti</h2>
-    <div class="posts-grid">
-      {recentPosts.map((post) => <PostCard post={post} />)}
+  <Welcome />
+  <SectionDivider type="dotted-arrow" height="100px" />
+  <section id="services">
+    <h2>I Miei Servizi</h2>
+    <div class="template-two-cols">
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            imagePath={service.imagePath}
+            description={service.description}
+            slug={service.slug}
+          />
+        ))
+      }
     </div>
   </section>
+  <SectionDivider type="dotted-arrow" height="100px" />
+
+  <section>
+    <h2>Articoli Recenti</h2>
+    <div class="template-two-cols">
+      {recentPosts.map((post) => <PostCard post={post} />)}
+    </div>
+    <div class="center">
+      <a href="/blog" type="button" class="btn btn-primary"
+        >Vedi di tutti gli articoli</a
+      >
+    </div>
+  </section>
+  <SectionDivider type="dotted-arrow" height="100px" />
 </Layout>
 
 <style>
-  .recent-posts {
+  section {
     margin: 0 auto;
     max-width: var(--container-max-width);
     padding: 0 var(--container-padding);
     margin-bottom: var(--container-padding);
-    h2 {
-      text-align: center;
-    }
   }
-  .posts-grid {
+  .center {
+    text-align: center;
+    margin: var(--spacing-4xl) 0;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .template-two-cols {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 5rem;
   }
 
   @media (max-width: 768px) {
-    .posts-grid {
+    .template-two-cols {
       grid-template-columns: 1fr;
     }
   }

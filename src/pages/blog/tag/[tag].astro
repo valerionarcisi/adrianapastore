@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import Hero from "../../../components/Hero.astro";
+import Title from "../../../components/Title.astro";
 import { getBlogPosts } from "../../../lib/hygraph";
 import PostCard from "../../../components/PostCard.astro";
 
@@ -22,7 +22,7 @@ const { posts } = Astro.props;
 ---
 
 <Layout title=`Tag: ${tag}`>
-  <Hero
+  <Title
     title=`Tag: ${tag}`
   />
   <section class:list={["container", "blog-index "]}>
@@ -47,7 +47,7 @@ const { posts } = Astro.props;
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 4rem;
   }
   @media (max-width: 768px) {
     .blog-index h1 {
