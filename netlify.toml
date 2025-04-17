@@ -4,6 +4,7 @@
 [build]
   command = "pnpm build"
   publish = "dist"
+  environment = { NODE_VERSION = "22.14.0" }
 [[headers]]
   for = "/*"
   [headers.values]
