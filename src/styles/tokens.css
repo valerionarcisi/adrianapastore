@@ -32,6 +32,7 @@
   /* Colors - invariati poiché non dipendono dal font-root */
   --color-primary: #b05d34; /* Warm autumn orange */
   --color-secondary: #8c3d27; /* Deep reddish-brown */
+  --color-logo: #5d3a24; /* Logo color */
   --color-accent: #d98e04; /* Golden yellow */
   --color-text: #3d2c23; /* Deep brown for readability */
   --color-background: #fdf6ec; /* Soft cream background */

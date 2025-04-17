@@ -32,6 +32,15 @@ const {
           <a href="/">
             <img src="/adriana-pastore-logo.png" alt="Logo Adriana Pastore" />
           </a>
+          <span class="logo-text">
+            <a href="/">
+              Adriana<br />
+              Pastore
+            </a>
+            <div class="logo-text-sub">
+              <a href="/"> PARENT COACH </a>
+            </div>
+          </span>
         </div>
 
         <button class="hamburger" id="hamburger-btn" aria-label="Menu">
@@ -273,6 +282,28 @@ const {
 
     .no-scroll {
       overflow: hidden;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    .logo-text {
+      margin-left: var(--spacing-md);
+      margin-top: var(--spacing-xs);
+      font-family: var(--font-heading);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      a {
+        color: var(--color-logo);
+      }
+      .logo-text-sub {
+        font-family: var(--font-body);
+        margin-top: var(--spacing-xs);
+        font-weight: 500;
+        letter-spacing: 0.2cap;
+        font-size: var(--font-size-xs);
+      }
     }
   }
 </style>
