@@ -1,0 +1,163 @@
+---
+export interface Props {
+  services: {
+    title: string;
+    imagePath: string;
+    description: string;
+    slug: string;
+    details: string[];
+  }[];
+}
+
+const { services } = Astro.props;
+const placeholderImage =
+  "https://via.placeholder.com/300/CCCCCC/000000?Text=Placeholder";
+---
+
+<section class="services-list">
+  {
+    services.map((service, index) => (
+      <article class={`service-row ${index % 2 === 1 ? "image-left" : ""}`}>
+        <div class="service-container">
+          <div class="service-details">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <ul class="details-list">
+              {service.details.map((detail) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+            <div class="cta-centered">
+              <a href={service.slug} class="btn btn-primary">
+                Scopri di più →
+              </a>
+            </div>
+          </div>
+          <div class="service-image-container">
+            <img
+              src={service.imagePath || placeholderImage}
+              alt={service.title}
+              class="service-image"
+            />
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</section>
+
+<style>
+  .services-list {
+    padding: var(--spacing-lg);
+  }
+
+  .service-row {
+    margin-bottom: var(--spacing-xl);
+    background: var(--color-background);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .service-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background-color: var(--color-white);
+  }
+
+  @media (min-width: 768px) {
+    .service-container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .service-image-container {
+      order: initial;
+      margin-bottom: 0;
+    }
+
+    .service-details {
+      padding-right: var(--spacing-lg);
+    }
+
+    .service-image-container {
+      padding-left: var(--spacing-lg);
+    }
+  }
+
+  .service-details {
+    padding-right: 0;
+  }
+
+  .service-details h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-details p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .details-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-centered {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+  }
+
+  .service-image-container {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .service-container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .service-image-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: var(--spacing-lg);
+      margin-top: 0;
+    }
+
+    .image-left .service-container {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
+    }
+
+    .image-left .service-details {
+      direction: ltr;
+      padding-left: var(--spacing-lg);
+      padding-right: 0;
+    }
+
+    .image-left .service-image-container {
+      direction: ltr;
+      justify-content: flex-start;
+      padding-left: 0;
+      padding-right: var(--spacing-lg);
+    }
+
+    .service-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

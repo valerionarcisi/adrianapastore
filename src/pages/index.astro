@@ -1,61 +1,41 @@
 ---
 import PostCard from "../components/PostCard.astro";
 import SectionDivider from "../components/SectionDivider.astro";
-import ServiceCard from "../components/ServiceCard.astro";
+import ServiceCards from "../components/ServiceCards.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getBlogPosts } from "../lib/hygraph";
 
 const recentPosts = await getBlogPosts(4);
 
-const services = [
+const myServices = [
   {
-    title: "Parent Coaching",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Percorsi personalizzati per genitori che desiderano migliorare la relazione con i propri figli e sviluppare strategie educative efficaci e rispettose.",
-    slug: "contatti",
+    title: 'Consulenza Singola 1:1',
+    imagePath: '/services/consulenza-singola-11.jpg',
+    description: 'Adatta ha chi ha un problema specifico e vuole un aiuto immediato',
+    slug: '/consulenza-singola-11',
+    details: ['Durata: 60 minuti', 'Prezzo: 55 €', 'Include: Incontro on line o in presenza', 'Analisi della situazione', 'Strategie pratiche personalizzate', 'Follow-up via email dopo la sessione'],
   },
   {
-    title: "Consulenza Educativa",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Supporto specializzato per affrontare sfide educative specifiche e costruire un ambiente familiare sereno, basato su comunicazione e comprensione reciproca.",
-    slug: "contatti",
+    title: 'Consulenza “Compiti Che Tragedia”',
+    imagePath: '/services/compiti-che-tragedia.jpg',
+    description: 'Se il momento dei compiti è una lotta continua Adatta a sostenere i genitori che fanno fatica a seguire i figli nei compiti',
+    slug: '/consulenza-compiti-che-tragedia',
+    details: ['Durata: 1h30', 'Prezzo: 60 €', 'Include: Incontro on line o in presenza', 'Analisi della situazione', 'Strategie pratiche e personalizzate', 'Strumenti di lavoro'],
   },
   {
-    title: "Laboratori per Famiglie",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Attività di gruppo per famiglie, per imparare divertendosi e condividere esperienze con altri genitori in un ambiente accogliente e non giudicante.",
-    slug: "contatti",
+    title: 'Percorso “Genitori Consapevoli”',
+    imagePath: '/services/genitori-consapevoli.jpg',
+    description: 'Adatto a chi vuole lavorare più a fondo su vari aspetti della genitorialità (comunicazione efficace, litigi, gestione delle routine, gestione delle emozioni, costruzione di una relazione solida)',
+    slug: '/genitori-consapevoli',
+    details: ['Durata minima: 4 incontri da 60 minuti', 'Prezzo: 200 €', 'Include: 4 incontri on line o in presenza', 'Analisi della situazione e piano personalizzato', 'Materiali di supporto (Pdf ed esercizi)', 'Supporto via mail tra una sessione e l’altra', 'Follow-up dopo un mese'],
   },
   {
-    title: "Supporto per Adolescenti",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
-    slug: "contatti",
-  },
-  {
-    title: "Supporto per Adolescenti",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
-    slug: "contatti",
-  },
-  {
-    title: "Supporto per Adolescenti",
-    imagePath:
-      "https://eu-west-2.graphassets.com/cm85c24d2008a01w802gq2tkm/cm8iniavt0xel07mkmry7t64x",
-    description:
-      "Percorsi dedicati agli adolescenti per sviluppare competenze emotive, autostima e capacità di gestione delle relazioni in questa fase cruciale della crescita.",
-    slug: "contatti",
+    title: 'Self-Care Genitori',
+    imagePath: '/services/self-care-genitori.jpg',
+    description: 'È il percorso adatto a tutti quei genitori che faticano a “riconoscersi” dopo la nascita dei figli, che vogliono ritrovare un pò di tempo per sé stessi e curare il proprio benessere',
+    slug: '/self-care-genitori',
+    details: ['Durata: 3 incontri on line o in presenza', 'Prezzo: 160 €', 'Include: Analisi della situazione e piano personalizzato', 'Materiali di supporto (Pdf ed esercizi)', 'Workbook con esercizi pratici in regalo'],
   },
 ];
 ---
@@ -65,18 +45,7 @@ const services = [
   <SectionDivider type="dotted-arrow" height="100px" />
   <section id="services">
     <h2>I Miei Servizi</h2>
-    <div class="template-two-cols">
-      {
-        services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            imagePath={service.imagePath}
-            description={service.description}
-            slug={service.slug}
-          />
-        ))
-      }
-    </div>
+    <ServiceCards services={myServices} />
   </section>
   <SectionDivider type="dotted-arrow" height="100px" />
 

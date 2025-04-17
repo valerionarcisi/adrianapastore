@@ -290,6 +290,7 @@ main {
   box-shadow: var(--shadow-md);
 }
 
+
 .tag-link {
   font-size: small;
   background-color: var(--color-primary);
@@ -302,4 +303,21 @@ main {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
+}
+
+
+li {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xs);
+  padding-left: 1em; 
+}
+li::before {
+  content: "•";
+  color: var(--color-accent);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
