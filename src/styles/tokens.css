@@ -1,5 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
+/* Inter */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Gilda Display */
+@font-face {
+  font-family: "Gilda Display";
+  src: url("/fonts/Gilda_Display/GildaDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Colors - invariati poiché non dipendono dal font-root */
   --color-primary: #b05d34; /* Warm autumn orange */
@@ -71,8 +99,6 @@
   --blockquote-shadow: var(--color-gray-300);
   --blockquote-font-size: 2.2rem; /* 22px */
   --blockquote-padding: 1.6rem; /* 16px */
-
-
 }
 
 @media (max-width: 768px) {

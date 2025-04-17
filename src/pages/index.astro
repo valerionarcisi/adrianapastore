@@ -10,32 +10,64 @@ const recentPosts = await getBlogPosts(4);
 
 const myServices = [
   {
-    title: 'Consulenza Singola 1:1',
-    imagePath: '/services/consulenza-singola-11.jpg',
-    description: 'Adatta ha chi ha un problema specifico e vuole un aiuto immediato',
-    slug: '/contatti',
-    details: ['Durata: 60 minuti', 'Prezzo: 55 €', 'Include: Incontro on line o in presenza', 'Analisi della situazione', 'Strategie pratiche personalizzate', 'Follow-up via email dopo la sessione'],
+    title: "Consulenza Singola 1:1",
+    imagePath: "/services/consulenza-singola-11.jpg",
+    description:
+      "Adatta ha chi ha un problema specifico e vuole un aiuto immediato",
+    slug: "/contatti",
+    details: [
+      "Durata: 60 minuti",
+      "Prezzo: 55 €",
+      "Include: Incontro on line o in presenza",
+      "Analisi della situazione",
+      "Strategie pratiche personalizzate",
+      "Follow-up via email dopo la sessione",
+    ],
   },
   {
-    title: 'Consulenza “Compiti Che Tragedia”',
-    imagePath: '/services/compiti-che-tragedia.jpg',
-    description: 'Se il momento dei compiti è una lotta continua Adatta a sostenere i genitori che fanno fatica a seguire i figli nei compiti',
-    slug: '/contatti',
-    details: ['Durata: 1h30', 'Prezzo: 60 €', 'Include: Incontro on line o in presenza', 'Analisi della situazione', 'Strategie pratiche e personalizzate', 'Strumenti di lavoro'],
+    title: "Consulenza “Compiti Che Tragedia”",
+    imagePath: "/services/compiti-che-tragedia.jpg",
+    description:
+      "Se il momento dei compiti è una lotta continua Adatta a sostenere i genitori che fanno fatica a seguire i figli nei compiti",
+    slug: "/contatti",
+    details: [
+      "Durata: 1h30",
+      "Prezzo: 60 €",
+      "Include: Incontro on line o in presenza",
+      "Analisi della situazione",
+      "Strategie pratiche e personalizzate",
+      "Strumenti di lavoro",
+    ],
   },
   {
-    title: 'Percorso “Genitori Consapevoli”',
-    imagePath: '/services/genitori-consapevoli.jpg',
-    description: 'Adatto a chi vuole lavorare più a fondo su vari aspetti della genitorialità (comunicazione efficace, litigi, gestione delle routine, gestione delle emozioni, costruzione di una relazione solida)',
-    slug: '/contatti',
-    details: ['Durata minima: 4 incontri da 60 minuti', 'Prezzo: 200 €', 'Include: 4 incontri on line o in presenza', 'Analisi della situazione e piano personalizzato', 'Materiali di supporto (Pdf ed esercizi)', 'Supporto via mail tra una sessione e l’altra', 'Follow-up dopo un mese'],
+    title: "Percorso “Genitori Consapevoli”",
+    imagePath: "/services/genitori-consapevoli.jpg",
+    description:
+      "Adatto a chi vuole lavorare più a fondo su vari aspetti della genitorialità (comunicazione efficace, litigi, gestione delle routine, gestione delle emozioni, costruzione di una relazione solida)",
+    slug: "/contatti",
+    details: [
+      "Durata minima: 4 incontri da 60 minuti",
+      "Prezzo: 200 €",
+      "Include: 4 incontri on line o in presenza",
+      "Analisi della situazione e piano personalizzato",
+      "Materiali di supporto (Pdf ed esercizi)",
+      "Supporto via mail tra una sessione e l’altra",
+      "Follow-up dopo un mese",
+    ],
   },
   {
-    title: 'Self-Care Genitori',
-    imagePath: '/services/self-care-genitori.jpg',
-    description: 'È il percorso adatto a tutti quei genitori che faticano a “riconoscersi” dopo la nascita dei figli, che vogliono ritrovare un pò di tempo per sé stessi e curare il proprio benessere',
-    slug: '/contatti',
-    details: ['Durata: 3 incontri on line o in presenza', 'Prezzo: 160 €', 'Include: Analisi della situazione e piano personalizzato', 'Materiali di supporto (Pdf ed esercizi)', 'Workbook con esercizi pratici in regalo'],
+    title: "Self-Care Genitori",
+    imagePath: "/services/self-care-genitori.jpg",
+    description:
+      "È il percorso adatto a tutti quei genitori che faticano a “riconoscersi” dopo la nascita dei figli, che vogliono ritrovare un pò di tempo per sé stessi e curare il proprio benessere",
+    slug: "/contatti",
+    details: [
+      "Durata: 3 incontri on line o in presenza",
+      "Prezzo: 160 €",
+      "Include: Analisi della situazione e piano personalizzato",
+      "Materiali di supporto (Pdf ed esercizi)",
+      "Workbook con esercizi pratici in regalo",
+    ],
   },
 ];
 ---
@@ -49,7 +81,7 @@ const myServices = [
   </section>
   <SectionDivider type="dotted-arrow" height="100px" />
 
-  <section>
+  <section class="blog">
     <h2>Articoli Recenti</h2>
     <div class="template-two-cols">
       {recentPosts.map((post) => <PostCard post={post} />)}
@@ -88,5 +120,10 @@ const myServices = [
     .template-two-cols {
       grid-template-columns: 1fr;
     }
+  }
+
+  .blog {
+    max-width: var(--container-max-width);
+    padding: var(--spacing-2xl);
   }
 </style>
