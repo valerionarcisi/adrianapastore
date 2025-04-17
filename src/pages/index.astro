@@ -75,7 +75,7 @@ const myServices = [
 <Layout title="Home">
   <Welcome />
   <SectionDivider type="dotted-arrow" height="100px" />
-  <section id="services">
+  <section class="services">
     <h2>I Miei Servizi</h2>
     <ServiceCards services={myServices} />
   </section>
@@ -95,11 +95,13 @@ const myServices = [
 </Layout>
 
 <style>
+
   section {
     margin: 0 auto;
     max-width: var(--container-max-width);
     padding: 0 var(--container-padding);
   }
+
   .center {
     text-align: center;
     margin: var(--spacing-4xl) 0;
@@ -123,6 +125,5 @@ const myServices = [
 
   .blog {
     max-width: var(--container-max-width);
-    padding: 0 var(--spacing-2xl);
   }
 </style>
