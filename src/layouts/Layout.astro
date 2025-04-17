@@ -29,7 +29,12 @@ const {
     <header>
       <nav class="container">
         <div class="logo">
-          <a href="/">Adriana Pastore</a>
+          <a href="/">
+            <img
+              src="/adriana-pastore-logo.png"
+              alt="Logo Adriana Pastore"
+            />
+          </a>
         </div>
 
         <button class="hamburger" id="hamburger-btn" aria-label="Menu">
@@ -139,7 +144,7 @@ const {
   header {
     background: var(--color-white);
     box-shadow: var(--shadow-md);
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-xs) 0;
     position: relative;
   }
 
@@ -151,14 +156,6 @@ const {
     align-items: center;
     padding: 0 var(--spacing-md);
   }
-
-  .logo a {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
-    color: var(--color-primary);
-    font-weight: 700;
-  }
-
   nav ul {
     display: flex;
     font-family: var(--font-heading);
@@ -228,7 +225,6 @@ const {
     transition: all 0.3s ease;
   }
 
-  /* Animazione per trasformare hamburger in X */
   .hamburger.is-active .hamburger-line:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
   }
