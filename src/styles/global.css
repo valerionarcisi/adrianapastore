@@ -133,7 +133,7 @@ main {
   flex-direction: column;
   gap: var(--spacing-md);
   @media (max-width: 768px) {
-    max-width: 45rem;
+    max-width: 33rem;
   }
 }
 
