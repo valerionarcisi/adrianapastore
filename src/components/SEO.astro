@@ -4,18 +4,18 @@ interface Props {
   description: string;
   image?: string;
   canonicalURL?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
 }
 
 const {
   title,
   description,
-  image = '/images/default-og.jpg',
+  image = "/images/default-og.jpg",
   canonicalURL = Astro.url.href,
-  type = 'website',
+  type = "website",
 } = Astro.props;
 
-const siteTitle = 'Adriana Pastore';
+const siteTitle = "Adriana Pastore";
 const fullTitle = `${title} | ${siteTitle}`;
 ---
 
@@ -42,9 +42,93 @@ const fullTitle = `${title} | ${siteTitle}`;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link
+  rel="apple-touch-icon"
+  sizes="57x57"
+  href="/favicons/favicon-57x57.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="60x60"
+  href="/favicons/favicon-60x60.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="72x72"
+  href="/favicons/favicon-72x72.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="/favicons/favicon-114x114.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="/favicons/favicon-120x120.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="/favicons/favicon-144x144.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="/favicons/favicon-152x152.png"
+  type="image/png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicons/favicon-180x180.png"
+  type="image/png"
+/>
+<link
+  rel="icon"
+  sizes="16x16"
+  href="/favicons/favicon-16x16.png"
+  type="image/png"
+/>
+<link
+  rel="icon"
+  sizes="32x32"
+  href="/favicons/favicon-32x32.png"
+  type="image/png"
+/>
+<link
+  rel="icon"
+  sizes="96x96"
+  href="/favicons/favicon-96x96.png"
+  type="image/png"
+/>
+<link
+  rel="icon"
+  sizes="192x192"
+  href="/favicons/favicon-192x192.png"
+  type="image/png"
+/>
+<link
+  rel="icon"
+  sizes="512x512"
+  href="/favicons/favicon-512x512.png"
+  type="image/png"
+/>
+<link rel="manifest" href="/favicons/manifest.json" />
+<meta name="theme-color" content="#FFFFFF" />
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/favicons/favicon-512x512.png" />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
