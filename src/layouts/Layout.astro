@@ -6,15 +6,21 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
+  canonical?: string;
 }
 
 const {
   title,
   description = "Coach Genitoriale ed Educatrice che aiuta le famiglie a superare le sfide educative, a rafforzare la comunicazione e a costruire relazioni familiari più armoniose e consapevoli.",
   image,
-  type,
+  imageAlt = "",
+  type = "website",
+  canonical = Astro.url.pathname,
 } = Astro.props;
+
+const fullImageURL = image ? new URL(image, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -23,7 +29,24 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <SEO title={title} description={description} image={image} type={type} />
+
+    <SEO title={title} description={description} image={fullImageURL} type={type} />
+
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    {fullImageURL && <meta property="og:image" content={fullImageURL} />}
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {fullImageURL && <meta name="twitter:image" content={fullImageURL} />}
+    {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+
   </head>
   <body>
     <header>
