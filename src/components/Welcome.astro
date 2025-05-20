@@ -34,27 +34,10 @@
     </div>
   </div>
   <div class="newsletter-container">
-    <h1>Rimani collegato con me!</h1>
-    <div>
-      <div class="floating-arrow">
-        <svg
-          width="105"
-          height="136"
-          viewBox="0 0 105 136"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="M55.6589 105.61C45.5206 116.044 32.1307 123.494 18.5331 121.22C11.4145 120.029 9.48877 115.446 10.2086 111.256C13.1394 94.1974 37.778 81.1554 49.444 77.3185C57.8476 74.5547 68.3697 73.0878 71.6954 78.7308C72.6475 81.1264 72.6083 84.3046 68.8874 87.2936C63.9655 91.2474 55.9084 92.4231 49.9329 93.1479C41.7187 94.1443 33.0785 93.5728 24.985 91.9549C22.4546 91.4491 19.8426 90.0916 18.0965 87.8736C15.6281 84.7381 17.7498 78.9563 19.3455 76.2986C21.7562 72.2834 25.3514 68.2627 28.767 65.1772C38.9759 55.9551 50.898 48.5517 62.5692 41.4064C73.5947 34.6564 80.02 31.1456 91.1516 24.6916"
-            stroke="var(--color-primary)"
-            stroke-width="3"
-            stroke-linecap="round"></path><path
-            d="M84.7872 35.7925C88.1241 32.4676 90.8598 29.9296 93.795 27.1202C95.6478 25.3467 97.4335 23.4846 99.3369 21.765C100.273 20.919 99.8962 21.3156 98.7843 21.4014C93.2797 21.8261 89.0284 21.4822 82.2029 20.8505"
-            stroke="var(--color-primary)"
-            stroke-width="3"
-            stroke-linecap="round"></path></svg
-        >
-      </div>
+    <div class="newsletter">
+      <h1>Rimani collegato con me!</h1>
     </div>
+
     <script async src="https://talk.hyvor.com/embed/newsletter.js" type="module"
     ></script>
     <hyvor-talk-newsletter
@@ -62,7 +45,24 @@
       t-button-subscribe="Iscriviti"
       t-button-subscribed="Iscritto"
       t-save="Modifica Preferenze"></hyvor-talk-newsletter>
-
+    <div class="floating-arrow">
+      <svg
+        width="105"
+        height="136"
+        viewBox="0 0 105 136"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M55.6589 105.61C45.5206 116.044 32.1307 123.494 18.5331 121.22C11.4145 120.029 9.48877 115.446 10.2086 111.256C13.1394 94.1974 37.778 81.1554 49.444 77.3185C57.8476 74.5547 68.3697 73.0878 71.6954 78.7308C72.6475 81.1264 72.6083 84.3046 68.8874 87.2936C63.9655 91.2474 55.9084 92.4231 49.9329 93.1479C41.7187 94.1443 33.0785 93.5728 24.985 91.9549C22.4546 91.4491 19.8426 90.0916 18.0965 87.8736C15.6281 84.7381 17.7498 78.9563 19.3455 76.2986C21.7562 72.2834 25.3514 68.2627 28.767 65.1772C38.9759 55.9551 50.898 48.5517 62.5692 41.4064C73.5947 34.6564 80.02 31.1456 91.1516 24.6916"
+          stroke="var(--color-primary)"
+          stroke-width="3"
+          stroke-linecap="round"></path><path
+          d="M84.7872 35.7925C88.1241 32.4676 90.8598 29.9296 93.795 27.1202C95.6478 25.3467 97.4335 23.4846 99.3369 21.765C100.273 20.919 99.8962 21.3156 98.7843 21.4014C93.2797 21.8261 89.0284 21.4822 82.2029 20.8505"
+          stroke="var(--color-primary)"
+          stroke-width="3"
+          stroke-linecap="round"></path></svg
+      >
+    </div>
   </div>
 </section>
 
@@ -247,7 +247,6 @@
   }
 
   @media (max-width: 480px) {
-
     h1 {
       font-size: var(--font-size-2xl);
     }
@@ -261,17 +260,25 @@
       font-size: var(--font-size-base);
     }
   }
+
   .newsletter-container {
+    margin: 0 auto;
+    max-width: 35%;
+    @media (max-width: 768px) {
+      max-width: 85%;
+    }
+  }
+  .newsletter {
     text-align: center;
     padding: 0;
-    position: relative; 
+    position: relative;
     margin-bottom: var(--spacing-lg);
     padding: 0 var(--spacing-3xl);
   }
 
   .floating-arrow {
     position: absolute;
-    top: 75%;
+    top: 93%;
     right: 70%;
     transform: translateY(-50%);
     animation: floatArrow 2s ease-in-out infinite alternate;
