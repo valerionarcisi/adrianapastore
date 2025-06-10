@@ -30,7 +30,12 @@ const fullImageURL = image ? new URL(image, Astro.site).href : undefined;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <SEO title={title} description={description} image={fullImageURL} type={type} />
+    <SEO
+      title={title}
+      description={description}
+      image={fullImageURL}
+      type={type}
+    />
 
     <link rel="canonical" href={canonical} />
 
@@ -41,19 +46,25 @@ const fullImageURL = image ? new URL(image, Astro.site).href : undefined;
     {fullImageURL && <meta property="og:image" content={fullImageURL} />}
     {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
 
-    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta
+      name="twitter:card"
+      content={image ? "summary_large_image" : "summary"}
+    />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {fullImageURL && <meta name="twitter:image" content={fullImageURL} />}
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
-
   </head>
   <body>
     <header>
       <nav class="container">
         <div class="logo">
           <a href="/">
-            <img width="80" src="/adriana-pastore-logo.png" alt="Logo Adriana Pastore" />
+            <img
+              width="80"
+              src="/adriana-pastore-logo.png"
+              alt="Logo Adriana Pastore"
+            />
           </a>
           <span class="logo-text">
             <a href="/">
@@ -161,17 +172,18 @@ const fullImageURL = image ? new URL(image, Astro.site).href : undefined;
           });
         }
       });
-      (function () {
-        var sbSiteSecret = "ac6314cc-c99d-4e5d-9547-3c2c2e899dad";
-        window.sitebehaviourTrackingSecret = sbSiteSecret;
-        var scriptElement = document.createElement("script");
-        scriptElement.async = true;
-        scriptElement.id = "site-behaviour-script-v2";
-        scriptElement.src =
-          "https://sitebehaviour-cdn.fra1.cdn.digitaloceanspaces.com/index.min.js?sitebehaviour-secret=" +
-          sbSiteSecret;
-        document.head.appendChild(scriptElement);
-      })();
+    </script>
+    <script
+      defer
+      data-domain="adrianapastore.com"
+      src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
     </script>
   </body>
 </html>
